@@ -7,11 +7,3 @@
         to apply: use "scroll-hidden" class on the element
 */
 
-::-webkit-scrollbar {
-    display: none;
-}
-
-.scroll-hidden {
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-}
