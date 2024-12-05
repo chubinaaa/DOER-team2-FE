@@ -3,9 +3,12 @@ import Logo from "./components/Logo";
 import WelcomeMessage from "./components/WelcomeMessage";
 
 export default function Home() {
-    return <h1>hello
-        <Logo/>
-        <WelcomeMessage/>
-        <InstallPopup/>
-    </h1>;
+    return (
+        <h1>
+            hello
+            <Logo />
+            <WelcomeMessage />
+            <InstallPopup />
+        </h1>
+    );
 }
