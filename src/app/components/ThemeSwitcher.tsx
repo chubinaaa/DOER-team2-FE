@@ -1,10 +1,14 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ContrastIcon } from "../icons/ContrastIcon";
-const savedTheme = localStorage.getItem("user-theme") ?? "light";
+
 type TProps = { onClick: () => void };
 export const ThemeSwitcher: React.FC<TProps> = ({ onClick }) => {
-    const [theme, setTheme] = useState(savedTheme);
+    const [theme, setTheme] = useState("light");
+    useEffect(() => {
+        const savedTheme = localStorage.getItem("user-theme") ?? "light";
+        setTheme(savedTheme);
+    }, []);
     const handler = () => {
         onClick();
         const newTheme = theme === "light" ? "dark" : "light";
