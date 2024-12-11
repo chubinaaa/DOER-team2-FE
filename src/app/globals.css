@@ -2,8 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
-    Hiding scrollbar for all browsers.
-        to apply: use "scroll-hidden" class on the element
-*/
-
+@layer base {
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+}
