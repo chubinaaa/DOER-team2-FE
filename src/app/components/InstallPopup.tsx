@@ -1,18 +1,18 @@
 import Logo from "./Logo";
 const InstallPopup = () => {
     return (
-        <div className="w-[279px] h-[73px] top-[34px] left-[57px] rounded-[12px] bg-[#F7F7F7]">
-            <div className="flex">
-                <Logo width="34.48px" height="34.48px mt-[18px] mr-[12px] mb-[21px] ml-[18px]" />
+        <div className="flex justify-center items-center w-full h-screen ">
+            <div className="flex justify-center items-center gap-[30%] w-[70%] h-[8.56%] rounded-[12px] bg-[#F7F7F7] absolute top-[4%] left-[14.5%]  p-[6.4%] border-box">
+                <Logo width="w-[12.35%]" height="h-[47%]" backgroundColor="bg-[#567DF4]"/>
                 <div>
-                    <p className="w-[108px] h-[14px] mt-[18px] mr-[64px] font-FiraGO font-bold text-[10px] leading-[14.4px] text-[#000000]">
+                    <p className="w-[38%] h-[19%] font-bold text-[10px] mb-[15%] text-[#000000]">
                         დააყენე “სახელი”
                     </p>
-                    <p className="w-[46px] h-[12px] mb-[18px] mr-[64px] mt-[11px] font-FiraGO font-light text-[10px] leading-[12px] text-[#888888]">
+                    <p className="w-[16.48%] h-[16.4%] font-light text-[10px]text-[#888888]">
                         sakheli.ge
                     </p>
                 </div>
-                <button className=" w-[35px] h-[14px] mt-[30px] ml-[-28px] font-FiraGO font-bold text-[12px] leading-[14.4px] text-[#567DF4]">
+                <button className=" w-[12.5%] h-[19%] font-bold text-[12px] text-[#567DF4]">
                     Install
                 </button>
             </div>
