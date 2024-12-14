@@ -13,7 +13,7 @@ export const LanguageSelector: React.FC<TProps> = ({ isVisible, onClick }) => {
     return (
         <>
             {isVisible && (
-                <div className="absolute top-10 right-2 bg-[#F3F6FF] border border-solid border-[#F3F6FF] rounded-2xl shadow-md p-0">
+                <div className="absolute top-10 right-2 bg-[#F3F6FF] dark:bg-[#131313] border border-solid border-[#F3F6FF] rounded-2xl shadow-md p-0 transition-colors">
                     {["ka", "en"].map((language) => (
                         <div
                             key={language}
@@ -21,7 +21,7 @@ export const LanguageSelector: React.FC<TProps> = ({ isVisible, onClick }) => {
                                 changeLanguage(language);
                                 onClick();
                             }}
-                            className={`w-[145px] h-[43px] cursor-pointer rounded-[16px] flex items-center justify-center text-black ${
+                            className={`w-[145px] h-[43px] cursor-pointer rounded-[16px] flex items-center justify-center text-black dark:text-white transition-colors ${
                                 selectedLanguage === language
                                     ? "border border-[#15593A]"
                                     : "border border-transparent"

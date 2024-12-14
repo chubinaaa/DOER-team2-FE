@@ -1,9 +1,9 @@
 import React from "react";
 type TProps = { onClick?: () => void; className?: string };
 
-export const GlobeIcon: React.FC<TProps> = (props) => {
+export const GlobeIcon: React.FC<TProps> = ({ className, onClick }) => {
     return (
-        <div className={`relative ${props.className}`} onClick={props.onClick}>
+        <div className={`relative ${className ?? ""}`} onClick={onClick}>
             <svg
                 width="32"
                 height="32"

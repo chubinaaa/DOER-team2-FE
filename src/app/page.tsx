@@ -13,19 +13,36 @@ import { Button } from "./components/Button";
 export default function Home() {
     const [theme, setTheme] = useState("light");
     const [isVisible, setIsVisible] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
         const storedTheme = localStorage.getItem("user-theme") ?? "light";
         setTheme(storedTheme);
+        setIsLoading(false);
     }, []);
+
+    if (isLoading)
+        return (
+            <div className="w-dvw h-dvh flex items-center justify-center text-white bg-[#9DCDB7] text-lg">
+                Loading ...{" "}
+            </div>
+        );
     return (
         <I18nextProvider i18n={i18n}>
-            <div className={`${theme === "dark" ? "dark" : "light"}`}>
-                <div className="w-screen h-screen flex flex-col justify-between bg-gradient-to-br from-black/0 via-black/20 to-black/40 box-border">
-                    <img
-                        src="/background.png"
-                        alt=""
-                        className="absolute z-[-5] h-full w-auto object-cover object-[55%] top-0 left-0"
-                    />
+            <div className={`${theme === "dark" ? "dark" : "light"} relative`}>
+                {theme === "dark" && (
+                    <div
+                        className="absolute w-screen h-screen"
+                        style={{
+                            backgroundSize: "cover",
+                            backgroundPosition: "center",
+                            background: `linear-gradient(33.01deg, rgba(0, 0, 0, 0) 81.39%, rgba(0, 0, 0, 0.2) 95.31%), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2))`,
+                        }}
+                    ></div>
+                )}
+                <div
+                    className="w-screen h-screen flex flex-col justify-between bg-[#9DCDB7] dark:bg-[#A8A8A8] bg-no-repeat bg-cover overflow-hidden transition-colors"
+                    style={{ backgroundImage: "url('background-light.png')" }}
+                >
                     <div className="flex justify-between items-center w-[91%] m-auto mt-[22px]">
                         <Logo />
                         <div className="flex justify-between items-center gap-[14px]">
@@ -34,7 +51,10 @@ export default function Home() {
                                     setTheme(localStorage.getItem("user-theme") ?? "light")
                                 }
                             />
-                            <GlobeIcon onClick={() => setIsVisible(!isVisible)} />
+                            <GlobeIcon
+                                onClick={() => setIsVisible(!isVisible)}
+                                className="text-white dark:text-black "
+                            />
                             <LanguageSelector
                                 isVisible={isVisible}
                                 onClick={() => setIsVisible(!isVisible)}
@@ -48,7 +68,7 @@ export default function Home() {
                                 console.log("გაგრძელება იქნება....");
                             }}
                             label="გაგრძელება"
-                            className=""
+                            className="w-[91%] m-auto bg-[#15593A] text-[16px] text-white leading-7 font-[350] rounded-[14px] flex justify-center items-center h-[55px] "
                         />
                     </div>
                 </div>
