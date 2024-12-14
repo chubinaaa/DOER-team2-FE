@@ -62,14 +62,16 @@ export default function Home() {
                                     setTheme(localStorage.getItem("user-theme") ?? "light")
                                 }
                             />
-                            <GlobeIcon
-                                onClick={() => setIsVisible(!isVisible)}
-                                className="text-white dark:text-black "
-                            />
-                            <LanguageSelector
-                                isVisible={isVisible}
-                                onClick={() => setIsVisible(!isVisible)}
-                            />
+                            <div className="relative">
+                                <GlobeIcon
+                                    onClick={() => setIsVisible(!isVisible)}
+                                    className="text-white dark:text-black "
+                                />
+                                <LanguageSelector
+                                    isVisible={isVisible}
+                                    onClick={() => setIsVisible(!isVisible)}
+                                />
+                            </div>
                         </div>
                     </div>
                     <div className="flex items-center flex-col gap-12 mb-[87px] w-[91%] m-auto">

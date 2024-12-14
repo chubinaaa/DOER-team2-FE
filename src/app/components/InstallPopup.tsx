@@ -20,7 +20,7 @@ const InstallPopup: React.FC<TProps> = ({ onClick }) => {
         <>
             <div
                 onClick={hide}
-                className="w-screen h-screen absolute top-0 bottom-0 flex justify-center items-start"
+                className="w-screen h-screen absolute top-0 bottom-0 flex justify-center items-start z-50"
             >
                 <div className="flex justify-center items-center gap-[30%] w-[70%] h-[8.56%] rounded-[12px] bg-[#F7F7F7] absolute top-[4%] left-[14.5%]  p-[6.4%] border-box">
                     <Logo />
