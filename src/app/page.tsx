@@ -9,8 +9,11 @@ import { GlobeIcon } from "./icons/GlobeIcon";
 import { LanguageSelector } from "./components/LanguageSelector";
 import WelcomeMessage from "./components/WelcomeMessage";
 import { Button } from "./components/Button";
+import { useAddToHomescreenPrompt } from "./hooks/useBeforeInstallPrompt";
+import InstallPopup from "./components/InstallPopup";
 
 export default function Home() {
+    const [prompt, promptToInstall] = useAddToHomescreenPrompt();
     const [theme, setTheme] = useState("light");
     const [isVisible, setIsVisible] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
@@ -29,9 +32,17 @@ export default function Home() {
     return (
         <I18nextProvider i18n={i18n}>
             <div className={`${theme === "dark" ? "dark" : "light"} relative`}>
+                {prompt && (
+                    <InstallPopup
+                        onClick={() => {
+                            console.log("install clicked");
+                            promptToInstall();
+                        }}
+                    />
+                )}
                 {theme === "dark" && (
                     <div
-                        className="absolute w-screen h-screen"
+                        className="absolute w-screen h-screen pointer-events-none"
                         style={{
                             backgroundSize: "cover",
                             backgroundPosition: "center",
